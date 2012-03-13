@@ -1,0 +1,8 @@
+{
+  "name": "tacbac",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "2.5.8",
+    "request": "2.9.153"
+  }
+}
