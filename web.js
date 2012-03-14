@@ -40,6 +40,15 @@ app.get('/ws/item', function(req, res) {
   res.send(item.get());
 });
 
+app.post('/ws/item', function(req, res) {
+  var item = res.body.item;
+  res.send(item.add(item));
+});
+
+app.put('/ws/item/:id', function(req, res) {
+  res.send(item.save(req.params.id, req.body.item));
+});
+
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Listening on " + port);
