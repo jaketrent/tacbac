@@ -19,6 +19,7 @@
   border-bottom: @width solid @border;
 }
 
+
 body {
   margin: 0;
   padding: 0;
@@ -40,6 +41,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 a {
   text-decoration: none;
+}
+
+.icon {
+  background: url('../img/icons.png') no-repeat center center;
+  overflow: hidden;
+  display: inline-block;
+  text-indent: -9999em;
+  &.edit {
+    background-position: -19px -22px;
+    width: 19px;
+    height: 19px;
+    margin-left: 5px;
+  }
+  &.add {
+    background-position: -51px -21px;
+    width: 23px;
+    height: 23px;
+  }
+  &.settings {
+    background-position: -84px -17px;
+    width: 30px;
+    height: 30px;
+  }
+  &.ok {
+    background-position: -126px -14px;
+    width: 36px;
+    height: 36px;
+  }
+  &.cancel {
+    background-position: -169px -12px;
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .screen-wide li {
