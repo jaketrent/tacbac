@@ -53,15 +53,15 @@ a {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e2e2e2',GradientType=1 ); /* IE6-9 */
 }
 
-#areas {
-  top: 0;
-  font-size: 20px;
-}
 #cats {
-  top: 30px;
+  top: 0;
+  font-size: 30px;
 }
 #cols {
   top: 60px;
+}
+#cols h2 {
+  font-size: 60px;
 }
 
 .item > header {
@@ -70,6 +70,8 @@ a {
 .item > header h3 {
   color: #fff;
   font-weight: bold;
+  font-size: 24px;
+  text-shadow: 1px 2px #ababab;
 }
 .item .bullets {
   padding: 20px 0;
