@@ -42,7 +42,9 @@ function error(err, data) {
 }
 
 app.get('/ws/item', function(req, res) {
-  item.get(res.send, error);
+  item.get(function (items) {
+    res.send(items);
+  }, error);
 });
 
 app.post('/ws/item', function(req, res) {
@@ -51,7 +53,10 @@ app.post('/ws/item', function(req, res) {
 });
 
 app.put('/ws/item/:id', function(req, res) {
-  res.send(item.save(req.params.id, req.body.item));
+  console.log('saving...');
+  item.save(req.params.id, req.body, function (item) {
+    res.send(item);
+  }, error);
 });
 
 var port = process.env.PORT || 3000;
