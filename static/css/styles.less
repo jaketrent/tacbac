@@ -52,7 +52,6 @@ a {
     background-position: -19px -22px;
     width: 19px;
     height: 19px;
-    margin-left: 5px;
   }
   &.add {
     background-position: -51px -21px;
@@ -73,6 +72,12 @@ a {
     background-position: -169px -12px;
     width: 36px;
     height: 36px;
+  }
+  &.on-right {
+    margin-left: 5px;
+  }
+  &.on-left {
+    margin-right: 5px;
   }
 }
 
@@ -120,6 +125,13 @@ a {
 
 .item > header {
   background: #acb7b9;
+  &.add {
+    background: @add-bg;
+    h3 {
+      color: @add-txt;
+      text-shadow: none;
+    }
+  }
 }
 .item > header h3 {
   color: #fff;
