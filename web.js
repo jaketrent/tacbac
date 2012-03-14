@@ -1,4 +1,5 @@
 var express = require('express');
+var item = require('./lib/item.js');
 
 var app = express.createServer(express.logger());
 
@@ -33,6 +34,10 @@ app.register('.html', {
 
 app.get('/', function(req, res) {
   res.render('index.html');
+});
+
+app.get('/ws/item', function(req, res) {
+  res.send(item.get());
 });
 
 var port = process.env.PORT || 3000;
