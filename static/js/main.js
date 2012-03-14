@@ -8,6 +8,6 @@ require.config({
 
 require(['require', 'webstack'], function (require) {
   require(['item/ItemsView'], function (ItemsView) {
-    new ItemsView();
+    //new ItemsView();
   });
 });

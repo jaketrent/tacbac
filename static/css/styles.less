@@ -18,7 +18,13 @@
 .border(@width: 5px) {
   border-bottom: @width solid @border;
 }
-
+.col-wide {
+  max-width: 100%;
+  width: 320px;
+}
+.screen-wide {
+  width: 960px;  /*test - adj w/ js */
+}
 
 body {
   margin: 0;
@@ -81,13 +87,6 @@ a {
   }
 }
 
-.screen-wide li {
-  width: 960px;  /*test - adj w/ js */
-}
-.col-wide li {
-  max-width: 100%;
-  width: 320px;
-}
 .flow {
   overflow: auto;
   position: absolute;
@@ -111,6 +110,9 @@ a {
 
 #cols {
   top: 0;
+  li {
+    .col-wide;
+  }
   .slider {
     .border(15px);
     h2 {
@@ -153,4 +155,33 @@ a {
   list-style-position: inside;
   padding-left: 20px;
   width: auto;
+}
+
+#editor {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: -3px;
+  padding: 15px 0;
+  background: @edit-bg;
+  color: @edit-txt;
+  .col-wide;
+  box-shadow: 2px 3px #707070;
+  textarea {
+    min-height: 200px;
+    max-height: 500px;
+    margin: 0 10px;
+    max-width: 294px;
+    width: 294px;
+  }
+  .btns {
+    overflow: auto;
+    margin: 0 10px;
+    .ok {
+      float: right;
+    }
+    .cancel {
+      float: left;
+    }
+  }
 }
