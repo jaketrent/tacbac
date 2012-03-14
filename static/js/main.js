@@ -7,7 +7,7 @@ require.config({
 });
 
 require(['require', 'webstack'], function (require) {
-  require(['item/PageView'], function (PageView) {
-    new PageView();
+  require(['item/ItemsView'], function (ItemsView) {
+    new ItemsView();
   });
 });

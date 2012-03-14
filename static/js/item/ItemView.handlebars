@@ -1,0 +1,17 @@
+<li>
+  <header class="cell slider">
+    <h2>{{ title }}<a href="javascript:void(0);" class="icon edit on-right">Edit</a></h2>
+  </header>
+  <ul class="points">
+    {{#each points}}
+      <li class="point">
+        <header class="cell">
+          <h3>{{ title }}<a href="javascript:void(0);" class="icon edit on-right">Edit</a></h3>
+        </header>
+        <ul class="bullets">
+          {{ body }}
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+</li>
