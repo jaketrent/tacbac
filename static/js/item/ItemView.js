@@ -1,15 +1,16 @@
-define(['tmpl!item/ItemView'], function (itemViewTmpl) {
+define(['tmpl!item/ItemView', 'tmpl!item/AddPointView'], function (itemViewTmpl, addPointViewTmpl) {
   return Backbone.View.extend({
     tagName: 'li',
     events: {
       'click .edit-title': 'editTitle',
-      'click .edit-point': 'editPoint'
+      'click .edit-point': 'editPoint',
+      'click .add-point': 'addPoint'
     },
     initialize: function () {
       _.bindAll(this);
     },
     render: function () {
-      $(this.el).html(itemViewTmpl(this.model.toJSON()));
+      $(this.el).html(itemViewTmpl(this.model.toJSON())).append(addPointViewTmpl());
       return this;
     },
     editTitle: function () {
@@ -21,6 +22,22 @@ define(['tmpl!item/ItemView'], function (itemViewTmpl) {
       var indx = this.$('.point').index($pt);
       Backbone.Events.trigger('edit', this.model.get('points')[indx].body, function (newPointBody) {
         self.savePoint(newPointBody, indx);
+      });
+    },
+    addPoint: function () {
+      Backbone.Events.trigger('edit', '', this.savePointAdd);
+    },
+    savePointAdd: function (newPointTitle) {
+      var points = this.model.get('points');
+      points.push({
+        title: newPointTitle,
+        body: ''
+      });
+      this.model.save({
+        points: points
+      }, {
+        success: this.saveSuccess,
+        error: this.saveError
       });
     },
     savePoint: function (newPointBody, index) {

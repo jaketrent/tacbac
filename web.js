@@ -48,12 +48,12 @@ app.get('/ws/item', function(req, res) {
 });
 
 app.post('/ws/item', function(req, res) {
-  var item = res.body.item;
-  res.send(item.add(item));
+  item.add(req.body, function (item) {
+    res.send(item);
+  }, error);
 });
 
 app.put('/ws/item/:id', function(req, res) {
-  console.log('saving...');
   item.save(req.params.id, req.body, function (item) {
     res.send(item);
   }, error);
