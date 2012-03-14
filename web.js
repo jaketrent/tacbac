@@ -37,7 +37,9 @@ app.get('/', function(req, res) {
 });
 
 app.get('/ws/item', function(req, res) {
-  res.send(item.get());
+  item.get(function (items) {
+    res.send(items);
+  });
 });
 
 app.post('/ws/item', function(req, res) {
