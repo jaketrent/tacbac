@@ -36,10 +36,13 @@ app.get('/', function(req, res) {
   res.render('index.html');
 });
 
+function error(err, data) {
+  console.log("ERROR: " + err);
+  console.log("DATA: " + data);
+}
+
 app.get('/ws/item', function(req, res) {
-  item.get(function (items) {
-    res.send(items);
-  });
+  item.get(res.send, error);
 });
 
 app.post('/ws/item', function(req, res) {
