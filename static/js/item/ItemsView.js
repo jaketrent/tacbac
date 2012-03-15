@@ -24,8 +24,20 @@ define(['item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/Item'], fu
       });
 
       $(this.el).html(frag).append(addItemViewTmpl());
-
+      this.resize();
       return this;
+    },
+    resize: function () {
+      var $items = this.$('.item');
+      var itemWidth = $items.eq(0).width();
+      var extraWidthEach = 1; /*border*/
+      var totalWidth = (itemWidth + extraWidthEach) * $items.length;
+      $(this.el).css({
+        width: totalWidth
+      });
+      $('body').css({
+        width: totalWidth
+      });
     },
     addItem: function () {
       Backbone.Events.trigger('edit', '', this.saveItemAdd);

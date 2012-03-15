@@ -12,13 +12,13 @@ define(function () {
       this.success = null;
     },
     edit: function (txt, success) {
-      $(this.el).show();
+      $(this.el).slideDown();
       this.$('#txt').val(txt).focus();
       this.success = success;
     },
     closeEdit: function () {
       this.$('#txt').val('');
-      $(this.el).hide();
+      $(this.el).slideUp();
     },
     save: function () {
       this.success(this.$('#txt').val());

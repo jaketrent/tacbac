@@ -1,6 +1,7 @@
 define(['tmpl!item/ItemView', 'tmpl!item/AddPointView'], function (itemViewTmpl, addPointViewTmpl) {
   return Backbone.View.extend({
     tagName: 'li',
+    className: 'item',
     events: {
       'click .edit-title': 'editTitle',
       'click .edit-point': 'editPoint',
