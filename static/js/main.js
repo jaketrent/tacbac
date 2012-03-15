@@ -7,8 +7,9 @@ require.config({
 });
 
 require(['require', 'webstack'], function (require) {
-  require(['item/ItemsView', 'item/EditorView'], function (ItemsView, EditorView) {
+  require(['item/ItemsView', 'item/EditorView', 'item/EditToggle'], function (ItemsView, EditorView, EditToggle) {
     new ItemsView();
     new EditorView();
+    new EditToggle();
   });
 });

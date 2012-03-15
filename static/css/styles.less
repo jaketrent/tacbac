@@ -188,3 +188,24 @@ a {
     }
   }
 }
+.editable {
+  display: none;
+}
+#edit-tgl {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  div {
+    margin: 0 auto;
+  }
+}
+.edit-mode {
+  .editable {
+    display: inline-block;
+  }
+  #edit-tgl {
+    background: @add-bg;
+  }
+}
