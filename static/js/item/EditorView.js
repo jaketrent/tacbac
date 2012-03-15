@@ -13,7 +13,7 @@ define(function () {
     },
     edit: function (txt, success) {
       $(this.el).show();
-      this.$('#txt').val(txt);
+      this.$('#txt').val(txt).focus();
       this.success = success;
     },
     closeEdit: function () {
