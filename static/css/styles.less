@@ -133,34 +133,35 @@ a {
       }
     }
   }
-}
-
-.point > header {
-  background: #acb7b9;
-  &.add {
-    background: @add-bg;
-    cursor: pointer;
-    h3 {
-      color: @add-txt;
-      text-shadow: none;
+  .point {
+    & > header {
+      background: #acb7b9;
+      &.add {
+        background: @add-bg;
+        cursor: pointer;
+        h3 {
+          color: @add-txt;
+          text-shadow: none;
+        }
+      }
+      h3 {
+        color: #fff;
+        font-weight: bold;
+        font-size: 24px;
+        text-shadow: 1px 2px #ababab;
+      }
+    }
+    .bullets {
+      padding: 20px 0;
+      li {
+        float: none;
+        list-style-type: square;
+        list-style-position: inside;
+        padding-left: 20px;
+        width: auto;
+      }
     }
   }
-}
-.point > header h3 {
-  color: #fff;
-  font-weight: bold;
-  font-size: 24px;
-  text-shadow: 1px 2px #ababab;
-}
-.point .bullets {
-  padding: 20px 0;
-}
-.point .bullets li {
-  float: none;
-  list-style-type: square;
-  list-style-position: inside;
-  padding-left: 20px;
-  width: auto;
 }
 
 #editor {
