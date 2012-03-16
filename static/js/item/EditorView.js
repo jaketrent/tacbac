@@ -11,7 +11,12 @@ define(function () {
       Backbone.Events.bind('closeEdit', this.closeEdit);
       this.success = null;
     },
-    edit: function (txt, success) {
+    edit: function (txt, success, $item) {
+      if ($item !== undefined) {
+        $(this.el).css({
+          left: $item.position().left
+        });
+      }
       $(this.el).slideDown();
       this.$('#txt').val(txt).focus();
       this.success = success;

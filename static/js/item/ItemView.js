@@ -14,8 +14,8 @@ define(['tmpl!item/ItemView', 'tmpl!item/AddPointView'], function (itemViewTmpl,
       $(this.el).html(itemViewTmpl(this.model.toJSON())).append(addPointViewTmpl());
       return this;
     },
-    editTitle: function () {
-      Backbone.Events.trigger('edit', this.model.get('title'), this.saveTitle);
+    editTitle: function (evt) {
+      Backbone.Events.trigger('edit', this.model.get('title'), this.saveTitle, $(evt.currentTarget).closest('.item'));
     },
     editPoint: function (evt) {
       var self = this;
@@ -23,10 +23,10 @@ define(['tmpl!item/ItemView', 'tmpl!item/AddPointView'], function (itemViewTmpl,
       var indx = this.$('.point').index($pt);
       Backbone.Events.trigger('edit', this.model.get('points')[indx].body, function (newPointBody) {
         self.savePoint(newPointBody, indx);
-      });
+      }, $(evt.currentTarget).closest('.item'));
     },
-    addPoint: function () {
-      Backbone.Events.trigger('edit', '', this.savePointAdd);
+    addPoint: function (evt) {
+      Backbone.Events.trigger('edit', '', this.savePointAdd, $(evt.currentTarget).closest('.item'));
     },
     savePointAdd: function (newPointTitle) {
       var points = this.model.get('points');

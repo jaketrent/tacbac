@@ -39,8 +39,8 @@ define(['item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/Item'], fu
         width: totalWidth
       });
     },
-    addItem: function () {
-      Backbone.Events.trigger('edit', '', this.saveItemAdd);
+    addItem: function (evt) {
+      Backbone.Events.trigger('edit', '', this.saveItemAdd, $(evt.currentTarget).closest('.item'));
     },
     saveItemAdd: function (newItemTitle) {
       var item = new Item();
