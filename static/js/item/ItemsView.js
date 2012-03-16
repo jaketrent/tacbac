@@ -12,6 +12,7 @@ define(['item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/Item'], fu
         alert(res);
       });
       this.collection.fetch();
+      $(window).resize(this.resize);
     },
     render: function (coll, res) {
       var frag = document.createDocumentFragment();
@@ -37,6 +38,14 @@ define(['item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/Item'], fu
       });
       $('body').css({
         width: totalWidth
+      });
+      var winHeight = $(window).height();
+      _(this.$('.item')).each(function (item) {
+        if ($(item).height() < winHeight) {
+          $(item).css({
+            height: winHeight
+          });
+        }
       });
     },
     addItem: function (evt) {
