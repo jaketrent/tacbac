@@ -19,12 +19,24 @@
   <!--<script src="/js/vendor/require-jquery.js" data-main="/js/main"></script>-->
 </head>
 <body>
-<h1>Login</h1>
-<form method="POST" action="/login">
-  <input type="text" name="username" />
-  <input type="password" name="password" />
-  <input type="submit" value="Login" />
-</form>
-
+  <ul id="cols" class="flow col-wide">
+    <li class="item">
+      <header class="cell slider">
+        <h2>Tacbac</h2>
+      </header>
+      <ul class="points">
+        <li class="point">
+          <header class="cell">
+            <h3>Login</h3>
+          </header>
+          <form method="POST" action="/login" id="login">
+            <input type="text" name="username" />
+            <input type="password" name="password" />
+            <input type="submit" value="Login" />
+          </form>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </body>
 </html>
