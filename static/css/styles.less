@@ -25,6 +25,10 @@
 .screen-wide {
   width: 960px;  /*test - adj w/ js */
 }
+.special-font {
+  font-family: 'Lato', arial, helvetica, sans-serif;
+  font-weight: 100;
+}
 
 body {
   margin: 0;
@@ -46,8 +50,7 @@ ul, ol {
 h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
-  font-family: 'Lato', arial, helvetica, sans-serif;
-  font-weight: 100;
+  .special-font;
 }
 a {
   text-decoration: none;
@@ -106,6 +109,9 @@ a {
 }
 .cell {
   padding: 10px 15px;
+  img {
+    max-width: 100%;
+  }
 }
 .slider {
   .grad;
@@ -216,16 +222,18 @@ a {
 
 #login {
   border-bottom: 1px solid @border;
-  padding: 15px 0;
+  padding: 15px 15px;
   overflow: auto;
   input {
     display: block;
     border: 1px solid @border;
     font-size: 24px;
-    float: right;
+    width: 100%;
     &[type=submit] {
       background: @heavy-color;
       color: #fff;
+      cursor: pointer;
+      text-align: right;
     }
   }
 }
