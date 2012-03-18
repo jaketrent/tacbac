@@ -7,6 +7,11 @@ require.config({
 });
 
 require(['require', 'webstack'], function (require) {
+  if (!window.JSON) {
+    require(['vendor/json2'], function () {
+      /*for old browsers*/
+    });
+  }
   require(['item/ItemsView', 'item/EditorView', 'item/EditToggle'], function (ItemsView, EditorView, EditToggle) {
     new ItemsView();
     new EditorView();
