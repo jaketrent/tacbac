@@ -48,6 +48,7 @@ ul, ol {
   list-style: none;
 }
 h1, h2, h3, h4, h5, h6 {
+  display: inline-block;
   padding: 0;
   margin: 0;
   .special-font;
@@ -157,8 +158,12 @@ a {
         text-shadow: 1px 2px #ababab;
       }
     }
-    .bullets {
+    .body {
       padding: 20px 0;
+      &.plain {
+        display: none;
+        background: #efefef;
+      }
       li {
         float: none;
         list-style-type: square;
@@ -212,8 +217,13 @@ a {
   }
 }
 .edit-mode {
-  .editable {
+  .editable.addable {
     display: inline-block;
+  }
+  &.no-contenteditable {
+    .editable {
+      display: inline-block;
+    }
   }
   #edit-tgl {
     background: @add-bg;

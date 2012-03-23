@@ -2,7 +2,8 @@ define(
   [ 'order!vendor/underscore-min',
     'order!vendor/backbone',
     'order!handlebars',
-    'order!handlebars-ext'
+    'order!handlebars-ext',
+    'vendor/jsHtmlToText'
   ], function(){
 
     Backbone.View.prototype.close = function() {
