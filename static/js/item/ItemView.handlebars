@@ -9,8 +9,7 @@
       <header class="cell">
         <h3 contenteditable="{{ ../editOn }}" class="is-contenteditable save-pt-title">{{ title }}</h3>
         <a href="javascript:void(0);" class="icon edit on-right editable edit-point">Edit</a>
-        <a href="javascript:void(0);" class="icon rm on-right editable
-        removable">Remove</a>
+        <a href="javascript:void(0);" class="icon rm on-right editable removable rm-point">Remove</a>
       </header>
       <div class="body rich">{{#if body}}{{ markdown body }}{{/if}}</div>
       <div class="is-contenteditable body plain save-pt-body" contenteditable="{{ ../editOn }}">{{ body }}</div>

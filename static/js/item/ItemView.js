@@ -6,6 +6,7 @@ define(['util', 'tmpl!item/ItemView', 'tmpl!item/AddPointView', 'vendor/jquery.t
       'click .edit-title': 'editTitle',
       'click .edit-point': 'editPoint',
       'click .add-point': 'addPoint',
+      'click .rm-point': 'rmPoint',
       'click .body.rich': 'toggleEditableBody',
       'blur .body.plain': 'blurEditableBody',
       'blur .is-contenteditable': 'saveItem'
@@ -124,6 +125,13 @@ define(['util', 'tmpl!item/ItemView', 'tmpl!item/AddPointView', 'vendor/jquery.t
       var index = this.getPointIndexForEvt(evt);
       var $body = this.$('.point').eq(index).find('.save-pt-body');
       $body.html(htmlToText($body.html()));
+    },
+    rmPoint: function (evt) {
+      if (confirm('Confirm remove?')) {
+        var indx = this.getPointIndexForEvt(evt);
+        this.$('.point.saveable').eq(indx).remove();
+        this.saveItem();
+      }
     }
   });
 });
