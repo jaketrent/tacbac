@@ -1,4 +1,4 @@
-define(['util'], function (util) {
+define(['util', 'vendor/jquery.hotkeys'], function (util) {
   return Backbone.View.extend({
     el: '#edit-tgl',
     events: {
@@ -7,6 +7,7 @@ define(['util'], function (util) {
     initialize: function () {
       _.bindAll(this);
       this.editOn = false;
+      $(document).bind('keydown', 'ctrl+e', this.toggleEdit);
       Backbone.Events.bind('ensureEditMode', this.ensureEditMode);
     },
     toggleEdit: function () {
