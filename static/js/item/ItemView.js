@@ -1,4 +1,4 @@
-define(['tmpl!item/ItemView', 'tmpl!item/AddPointView', 'vendor/jquery.touchwipe.1.1.1'], function (itemViewTmpl, addPointViewTmpl) {
+define(['util', 'tmpl!item/ItemView', 'tmpl!item/AddPointView', 'vendor/jquery.touchwipe.1.1.1'], function (util, itemViewTmpl, addPointViewTmpl) {
   return Backbone.View.extend({
     tagName: 'li',
     className: 'item',
@@ -52,7 +52,11 @@ define(['tmpl!item/ItemView', 'tmpl!item/AddPointView', 'vendor/jquery.touchwipe
       }, $(evt.currentTarget).closest('.item'));
     },
     addPoint: function (evt) {
-      Backbone.Events.trigger('edit', '', this.savePointAdd, $(evt.currentTarget).closest('.item'));
+      if (util.browserIsContenteditable()) {
+        this.savePointAdd('newb');
+      } else {
+        Backbone.Events.trigger('edit', '', this.savePointAdd, $(evt.currentTarget).closest('.item'));
+      }
     },
     savePointAdd: function (newPointTitle) {
       var points = this.model.get('points');

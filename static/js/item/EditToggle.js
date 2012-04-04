@@ -1,4 +1,4 @@
-define(function () {
+define(['util'], function (util) {
   return Backbone.View.extend({
     el: '#edit-tgl',
     events: {
@@ -14,17 +14,12 @@ define(function () {
       this.ensureEditMode();
     },
     ensureEditMode: function () {
-      var contentEditable = this.browserIsContenteditable();
-      if (contentEditable) {
+      if (util.browserIsContenteditable()) {
         $('.is-contenteditable').attr('contenteditable', this.editOn);
         $('html').toggleClass('edit-mode', this.editOn).addClass('contenteditable');
       } else {
         $('html').toggleClass('edit-mode', this.editOn).addClass('no-contenteditable');
       }
-    },
-    browserIsContenteditable: function () {
-      /* no ios 3,4 -- for my purposes */
-      return !((/(iPhone|iPod|iPad)/i.test(navigator.userAgent)) && (/OS [1-4](_\d)?(_\d)? like Mac OS X/i.test(navigator.userAgent)));
     }
   });
 });
