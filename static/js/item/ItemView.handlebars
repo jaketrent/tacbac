@@ -1,6 +1,7 @@
 <header class="cell slider">
   <h2 contenteditable="{{ editOn }}" class="is-contenteditable save-title">{{ item.title }}</h2>
   <a href="javascript:void(0);" class="icon edit on-right editable edit-title">Edit</a>
+  <a href="javascript:void(0);" class="icon rm on-right editable removable">Remove</a>
 </header>
 <ul class="points">
   {{#each item.points}}
@@ -8,6 +9,8 @@
       <header class="cell">
         <h3 contenteditable="{{ ../editOn }}" class="is-contenteditable save-pt-title">{{ title }}</h3>
         <a href="javascript:void(0);" class="icon edit on-right editable edit-point">Edit</a>
+        <a href="javascript:void(0);" class="icon rm on-right editable
+        removable">Remove</a>
       </header>
       <div class="body rich">{{#if body}}{{ markdown body }}{{/if}}</div>
       <div class="is-contenteditable body plain save-pt-body" contenteditable="{{ ../editOn }}">{{ body }}</div>
