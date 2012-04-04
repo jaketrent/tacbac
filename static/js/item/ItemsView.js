@@ -2,7 +2,8 @@ define(['util', 'item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/It
   return Backbone.View.extend({
     el: '#cols',
     events: {
-      'click .add-item': 'addItem'
+      'click .add-item': 'addItem',
+      'click .rm-item': 'rmItem'
     },
     initialize: function () {
       _.bindAll(this);
@@ -72,6 +73,25 @@ define(['util', 'item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/It
     },
     saveError: function (item, res) {
       alert('item ERROR save');
+    },
+    rmItem: function (evt) {
+      if (confirm('Confirm remove?')) {
+        var self = this;
+        var indx = this.getItemIndexForEvt(evt);
+        var item = this.collection.at(indx);
+        item.destroy({
+          success: function () {
+            self.collection.remove(item);
+            self.saveSuccess();
+          },
+          error: this.saveError
+        });
+      }
+    },
+    getItemIndexForEvt: function (evt) {
+      var self = this;
+      var $item = $(evt.currentTarget).closest('.item');
+      return this.$('.item').index($item);
     }
   });
 });

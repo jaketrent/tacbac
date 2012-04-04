@@ -115,6 +115,12 @@ app.put('/ws/item/:id', auth, function(req, res) {
   }, error);
 });
 
+app.del('/ws/item/:id', auth, function (req, res) {
+  item.remove(req.params.id, function (item) {
+    res.send(item);
+  }, error);
+});
+
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
