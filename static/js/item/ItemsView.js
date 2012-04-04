@@ -1,4 +1,4 @@
-define(['item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/Item'], function (Items, ItemView, addItemViewTmpl, Item) {
+define(['util', 'item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/Item'], function (util, Items, ItemView, addItemViewTmpl, Item) {
   return Backbone.View.extend({
     el: '#cols',
     events: {
@@ -25,6 +25,7 @@ define(['item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/Item'], fu
       });
 
       $(this.el).html(frag).append(addItemViewTmpl());
+      Backbone.Events.trigger('ensureEditMode');
       this.resize();
       return this;
     },
@@ -49,7 +50,11 @@ define(['item/Items', 'item/ItemView', 'tmpl!item/AddItemView', 'item/Item'], fu
       });
     },
     addItem: function (evt) {
-      Backbone.Events.trigger('edit', '', this.saveItemAdd, $(evt.currentTarget).closest('.item'));
+      if (util.browserIsContenteditable()) {
+        this.saveItemAdd('newb');
+      } else {
+        Backbone.Events.trigger('edit', '', this.saveItemAdd, $(evt.currentTarget).closest('.item'));
+      }
     },
     saveItemAdd: function (newItemTitle) {
       var item = new Item();

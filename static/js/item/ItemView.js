@@ -14,12 +14,14 @@ define(['util', 'tmpl!item/ItemView', 'tmpl!item/AddPointView', 'vendor/jquery.t
       _.bindAll(this);
     },
     render: function () {
-      $(this.el).html(itemViewTmpl(this.model.toJSON())).append(addPointViewTmpl());
+      $(this.el).html(itemViewTmpl({
+        item: this.model.toJSON(),
+        editOn: false
+      })).append(addPointViewTmpl());
       this.$('.slider').touchwipe({
         wipeLeft: this.scrollToRight,
         wipeRight: this.scrollToLeft
       });
-      Backbone.Events.trigger('ensureEditMode', this.ensureEditMode);
       return this;
     },
     scrollToRight: function () {
